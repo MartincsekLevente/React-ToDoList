@@ -3,8 +3,8 @@ body {
     color: white;
     display: flex;
     min-height: 100vh;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .app-container {
@@ -12,6 +12,10 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 15%;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px black;
 
     .title {
         font-weight: bold;
@@ -32,11 +36,16 @@ body {
         width: 250px;
         gap: 5px;
 
+        .to-do-empty-text {
+            color: indianred;
+            font-style: italic;
+            align-self: center;
+        }
+
         .to-do-item {
-            padding-left: 10px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
         }
     }
 }

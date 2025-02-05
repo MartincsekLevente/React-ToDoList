@@ -3,12 +3,17 @@ import './App.scss';
 import { Button, Checkbox, Input } from "@mantine/core";
 import { FormEvent, useState } from "react";
 
-function App() {
+export default function App() {
     const [newItem, setNewItem] = useState("");
+    const [toDoList, setToDoList] = useState<string[]>([]);
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        console.log(newItem)
+        setToDoList(currentToDoList => {
+            return [...currentToDoList, newItem]
+        });
+
+        setNewItem("");
     }
 
     return (
@@ -22,7 +27,7 @@ function App() {
                         value={newItem}
                         onChange={event => setNewItem(event.target.value)}
                         placeholder="Type here..."/>
-                    <Button>
+                    <Button type="submit">
                         Add Item
                     </Button>
                 </form>
@@ -31,21 +36,18 @@ function App() {
                 <div className={"title"}>
                     To-Do List
                 </div>
-                <div className={"to-do-item"}>
-                    <Checkbox label="Do Laundry"></Checkbox>
-                    <Button color="red" variant="outline">
-                        Delete
-                    </Button>
-                </div>
-                <div className={"to-do-item"}>
-                    <Checkbox label="Item 2 here"></Checkbox>
-                    <Button color="red" variant="outline">
-                        Delete
-                    </Button>
-                </div>
+                {toDoList.length === 0 ? <div className={"to-do-empty-text"}>The To-Do list is empty!</div> : null}
+                {toDoList.map(item => {
+                    return (
+                        <div className={"to-do-item"} key={crypto.randomUUID()}>
+                            <Checkbox label={item}></Checkbox>
+                            <Button color="red" variant="outline">
+                                Delete
+                            </Button>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
 }
-
-export default App;
