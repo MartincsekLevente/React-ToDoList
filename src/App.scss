@@ -1,0 +1,42 @@
+body {
+    background-color: #333333;
+    color: white;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15%;
+
+    .title {
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-top: 20px;
+    }
+
+    .new-item-form {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        gap: 10px;
+    }
+
+    .to-do-list-container {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        gap: 5px;
+
+        .to-do-item {
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+}
