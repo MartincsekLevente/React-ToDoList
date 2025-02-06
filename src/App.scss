@@ -46,6 +46,14 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            .mantine-Checkbox-label {
+                color: wheat;
+            }
+
+            .completed-label {
+                color: green;
+            }
         }
     }
 }
